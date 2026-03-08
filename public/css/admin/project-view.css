@@ -1,0 +1,113 @@
+/* Card container */
+.card {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.5rem;
+    overflow: hidden; /* fixes header rounding issues */
+}
+
+.card-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    font-weight: 600;
+    padding: 0.75rem 1rem; 
+    background-color: #f8f9fa;
+}
+
+/* Member item */
+.member-info {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+}
+
+/* Hover effect */
+.member-info:hover {
+    background-color: #f1f3f5;
+}
+
+/* Action buttons container */
+.member-actions {
+    display: none;
+    margin-left: 10px;
+    white-space: nowrap; /* FIX: prevents layout jump */
+}
+
+/* Show actions in edit mode */
+.edit-mode .member-actions {
+    display: inline-flex;
+    gap: 5px;
+}
+
+/* Scrollable team list */
+.team-members {
+    max-height: 300px; /* FIX: controlled height */
+    overflow-y: auto;
+}
+
+/* Scrollbar styling */
+.team-members::-webkit-scrollbar {
+    width: 8px;
+}
+
+.team-members::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.team-members::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 10px;
+}
+
+.team-members::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Action buttons */
+.action-btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    line-height: 1;
+}
+:root{
+    --dark-red:#8b0000;
+    --dark-red-soft:#a31616;
+}
+
+/* ===== HEADER ===== */
+.project-header{
+    background:linear-gradient(135deg,var(--dark-red),var(--dark-red-soft));
+    color:#fff;
+    border-radius:.5rem .5rem 0 0;
+}
+
+/* ===== BADGES ===== */
+.badge-status{
+    font-size:.75rem;
+    padding:.4em .7em;
+}
+
+/* ===== TEAM ===== */
+.member-card{
+    border:1px solid #e5e5e5;
+    transition:.2s ease;
+}
+.member-card:hover{
+    background:#fdf4f4;
+    border-color:var(--dark-red);
+}
+
+/* ===== BUTTONS ===== */
+.btn-dark-red{
+    background:var(--dark-red);
+    color:#fff;
+}
+.btn-dark-red:hover{
+    background:#6f0000;
+    color:#fff;
+}
+
+/* ===== DOCUMENT VIEW ===== */
+.doc-actions .btn{
+    margin-right:.25rem;
+}

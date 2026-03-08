@@ -1,0 +1,56 @@
+:root {
+    --primary-red: #dc2626;
+    --primary-dark: #991b1b;
+    --primary-light: #fecaca;
+    --primary-bg: #fef2f2;
+}
+
+body {
+    background-color: #f8fafc;
+}
+
+.section-title {
+    color: var(--primary-dark);
+}
+
+.dashboard-card {
+    border-radius: 0.75rem;
+    border: none;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 20px rgba(0,0,0,.08);
+}
+
+.table thead th {
+    font-weight: 600;
+    color: #6b7280;
+    border-bottom: none;
+}
+
+.table tbody td {
+    vertical-align: middle;
+}
+
+.table-hover tbody tr {
+    transition: background-color .15s ease;
+}
+
+.badge {
+    padding: .45em .65em;
+    font-weight: 600;
+    letter-spacing: .02em;
+}
+
+.chart-container {
+    height: 350px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    h2, h5 {
+        font-size: 1rem;
+    }
+}

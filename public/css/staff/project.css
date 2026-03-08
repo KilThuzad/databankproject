@@ -1,0 +1,40 @@
+.filter-form {
+        background-color: #f8f9fa;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    }
+
+    .project-card {
+        border: 1px solid #e0e0e0;
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 12px;
+        transition: all 0.3s;
+        cursor: pointer;
+        background-color: #fff;
+    }
+
+    .project-card:hover {
+        box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+        transform: translateY(-2px);
+    }
+
+    .badge {
+        font-size: 0.75rem;
+        font-weight: 600;
+    }
+
+    .card-header-custom {
+        background-color: rgba(49, 43, 43, 0.15);
+        font-weight: 600;
+    }
+
+    .dropdown .btn {
+        padding: 0.25rem 0.5rem;
+    }
+
+    .modal-category-list {
+        max-height: 300px;
+        overflow-y: auto;
+    }

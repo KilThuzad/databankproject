@@ -1,0 +1,47 @@
+:root {
+    --primary-red: #dc2626;
+    --primary-dark: #991b1b;
+    --primary-light: #fecaca;
+    --primary-bg: #fef2f2;
+
+    --dark: #1f2937;
+    --gray: #6b7280;
+
+    --border-radius: 12px;
+    --transition: all 0.3s ease;
+    --shadow: 0 4px 6px rgba(220, 38, 38, 0.1);
+    --shadow-lg: 0 10px 15px rgba(220, 38, 38, 0.15);
+}
+   .table-card {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+        }
+
+        .table-card table th,
+        .table-card table td {
+            vertical-align: middle;
+        }
+
+        .table-card table tbody tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        .btn-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        @media (max-width: 768px) {
+            .table-responsive {
+                overflow-x: auto;
+            }
+        }

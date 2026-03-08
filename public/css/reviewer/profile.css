@@ -1,0 +1,122 @@
+/* =========================
+   Dark Red Theme Utilities
+========================= */
+.bg-darkred {
+    background-color: #8B1A1A !important;
+    color: #fff !important;
+}
+
+.btn-darkred {
+    background-color: #8B1A1A;
+    border-color: #8B1A1A;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.btn-darkred:hover {
+    background-color: #6F1515;
+    border-color: #6F1515;
+    color: #fff;
+}
+
+/* =========================
+   Profile Picture
+========================= */
+.profile-picture-container {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-picture-upload {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: #8B1A1A;
+    color: #fff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.profile-picture-upload:hover {
+    transform: scale(1.1);
+    background: #6F1515;
+}
+
+/* =========================
+   Activity Items
+========================= */
+.activity-item {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s ease;
+}
+
+.activity-item:hover {
+    background-color: #f8f9fa;
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+}
+
+/* =========================
+   Modal Styling
+========================= */
+.modal-content {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #8B1A1A, #6F1515);
+    color: #fff;
+    border-bottom: none;
+}
+
+.modal-title {
+    font-weight: 600;
+}
+
+.btn-close-white {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* =========================
+   Custom File Input
+========================= */
+.custom-file-input {
+    position: relative;
+    overflow: hidden;
+}
+
+.custom-file-input input[type="file"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.custom-file-label {
+    background: #f8f9fa;
+    border: 2px dashed #dee2e6;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.custom-file-label:hover {
+    border-color: #8B1A1A;
+    background: #fff5f5;
+}

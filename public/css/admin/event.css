@@ -1,0 +1,168 @@
+:root {
+    --primary-red: #dc2626;
+    --primary-dark: #991b1b;
+    --primary-light: #fecaca;
+    --primary-bg: #fef2f2;
+
+    --dark: #1f2937;
+    --gray: #6b7280;
+
+    --border-radius: 12px;
+    --transition: all 0.3s ease;
+    --shadow: 0 4px 6px rgba(220, 38, 38, 0.1);
+    --shadow-lg: 0 10px 15px rgba(220, 38, 38, 0.15);
+}
+.table-hover tbody tr:hover {
+    background-color: #f8f9fa;
+}
+.badge {
+    font-size: 0.75rem;
+}
+.search-bar {
+    max-width: 300px;
+}
+ .event-header {
+        background: linear-gradient(135deg, #9b0000 0%, #7a0000 100%);
+        border-radius: 16px 16px 16px 16px;
+        padding: 2rem 2rem;
+        margin-bottom: 2rem;
+        color: white;
+    }
+    .event-header h1 {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+    .event-meta-card {
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+        overflow: hidden;
+        border: none;
+        transition: transform 0.2s;
+    }
+    .event-meta-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 28px rgba(155,0,0,0.1);
+    }
+    .meta-item {
+        padding: 1.5rem;
+        border-bottom: 1px solid #f0f0f0;
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    .meta-item:last-child {
+        border-bottom: none;
+    }
+    .meta-icon {
+        width: 48px;
+        height: 48px;
+        background: #fef2f2;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #9b0000;
+        font-size: 1.4rem;
+        flex-shrink: 0;
+    }
+    .meta-content {
+        flex: 1;
+    }
+    .meta-label {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #6c757d;
+        margin-bottom: 0.25rem;
+    }
+    .meta-value {
+        font-weight: 600;
+        font-size: 1.1rem;
+        color: #2d2d2d;
+    }
+    .meta-value small {
+        font-weight: normal;
+        font-size: 0.9rem;
+        color: #6c757d;
+    }
+    .description-card {
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+        padding: 1.8rem;
+        margin-top: 1.5rem;
+        border: none;
+    }
+    .description-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #2d2d2d;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    .description-title i {
+        color: #9b0000;
+    }
+    .description-content {
+        background: #f8f9fa;
+        border-radius: 12px;
+        padding: 1.5rem;
+        color: #4a4a4a;
+        line-height: 1.6;
+    }
+    .btn-red {
+        background: #9b0000;
+        border: none;
+        color: white;
+        padding: 0.6rem 1.8rem;
+        font-weight: 500;
+        border-radius: 10px;
+        transition: all 0.2s;
+    }
+    .btn-red:hover {
+        background: #7a0000;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 14px rgba(155,0,0,0.3);
+    }
+    .btn-outline-red {
+        border: 1px solid #9b0000;
+        color: #9b0000;
+        background: transparent;
+        padding: 0.6rem 1.8rem;
+        font-weight: 500;
+        border-radius: 10px;
+        transition: all 0.2s;
+    }
+    .btn-outline-red:hover {
+        background: #9b0000;
+        color: white;
+        border-color: #9b0000;
+        transform: translateY(-2px);
+    }
+    .btn-outline-secondary {
+        border-radius: 10px;
+        padding: 0.6rem 1.5rem;
+    }
+    .action-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+    }
+    @media (max-width: 576px) {
+        .event-header {
+            padding: 1.5rem;
+        }
+        .meta-item {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+        .action-buttons {
+            justify-content: center;
+        }
+    }

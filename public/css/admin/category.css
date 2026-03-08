@@ -1,0 +1,182 @@
+:root {
+    --primary-red: #dc2626;
+    --primary-dark: #991b1b;
+    --primary-light: #fecaca;
+    --primary-bg: #fef2f2;
+
+    --dark: #1f2937;
+    --gray: #6b7280;
+
+    --border-radius: 12px;
+    --transition: all 0.3s ease;
+    --shadow: 0 4px 6px rgba(220, 38, 38, 0.1);
+    --shadow-lg: 0 10px 15px rgba(220, 38, 38, 0.15);
+}
+
+.page-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    color: var(--primary-dark);
+    padding-bottom: 5px;
+    border-bottom: 2px solid var(--primary-light);
+}
+
+.card {
+    background: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.card-header {
+    font-weight: 600;
+    font-size: 1.2rem;
+    border-bottom: 2px solid var(--primary-light);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Buttons */
+.btn-danger {
+    background-color: var(--primary-red);
+    border-color: var(--primary-red);
+    transition: var(--transition);
+}
+
+.btn-danger:hover, .btn-danger:focus {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+.btn-outline-secondary {
+    color: var(--gray);
+    border-color: var(--gray);
+}
+
+.btn-outline-secondary:hover {
+    background-color: var(--primary-light);
+    color: var(--primary-dark);
+}
+
+/* Form inputs */
+.form-control:focus {
+    border-color: var(--primary-red);
+    box-shadow: 0 0 0 0.2rem rgba(220, 38, 38, 0.25);
+}
+
+/* Validation errors */
+.is-invalid {
+    border-color: var(--primary-red);
+    box-shadow: none;
+}
+
+
+/* Table Styling */
+.table thead th {
+    color: var(--dark);
+    font-weight: 600;
+    background-color: var(--primary-bg);
+}
+
+.table tbody tr:hover {
+    background-color: #fef2f2;
+}
+
+.table td, .table th {
+    vertical-align: middle;
+}
+
+/* Buttons */
+.btn-danger {
+    background-color: var(--primary-red);
+    border-color: var(--primary-red);
+    transition: var(--transition);
+}
+
+.btn-danger:hover, .btn-danger:focus {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+.btn-outline-danger {
+    color: var(--primary-red);
+    border-color: var(--primary-red);
+}
+
+.btn-outline-danger:hover {
+    background-color: var(--primary-red);
+    color: #fff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    .page-title {
+        font-size: 1.2rem;
+    }
+    .btn {
+        font-size: 0.8rem;
+        padding: 0.25rem 0.5rem;
+    }
+}
+
+/* Table container */
+.table-responsive {
+    overflow-x: auto;
+}
+
+/* Make table fixed layout for consistent column widths */
+.table {
+    table-layout: fixed; /* ensures columns have consistent width */
+    width: 100%;
+}
+
+/* Table header */
+.table thead th {
+    color: var(--dark);
+    font-weight: 600;
+    background-color: var(--primary-bg);
+    text-align: center;
+}
+
+/* Column widths */
+.table th:nth-child(1), .table td:nth-child(1) { width: 5%; text-align: center; }
+.table th:nth-child(2), .table td:nth-child(2) { width: 30%; text-align: left; }
+.table th:nth-child(3), .table td:nth-child(3) { width: 25%; text-align: left; }
+.table th:nth-child(4), .table td:nth-child(4) { width: 15%; text-align: center; }
+.table th:nth-child(5), .table td:nth-child(5) { width: 15%; text-align: center; }
+.table th:nth-child(6), .table td:nth-child(6) { width: 10%; text-align: center; }
+
+/* Minimum row height for better readability */
+.table tbody tr {
+    min-height: 50px;
+    height: 50px;
+}
+
+/* Row hover effect */
+.table tbody tr:hover {
+    background-color: #fef2f2;
+}
+
+/* Table cell text overflow handling */
+.table td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Make table responsive on small screens */
+@media (max-width: 768px) {
+    .table th, .table td {
+        font-size: 0.85rem;
+        padding: 0.5rem 0.75rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .table th, .table td {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.5rem;
+    }
+}

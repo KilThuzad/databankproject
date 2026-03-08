@@ -1,0 +1,199 @@
+ :root {
+        --primary-red: #dc2626;
+        --primary-dark: #991b1b;
+        --primary-light: #fecaca;
+        --primary-bg: #fef2f2;
+    }
+
+    .filter-card {
+        background: white;
+        border-radius: 12px;
+        border: none;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+        transition: all 0.2s ease;
+    }
+
+    .filter-card:hover {
+        box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+    }
+
+    .form-label {
+        font-weight: 600;
+        color: #4b5563;
+        margin-bottom: 0.25rem;
+    }
+
+    .form-control, .form-select {
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        padding: 0.5rem 0.75rem;
+        font-size: 0.95rem;
+        transition: border-color 0.15s ease;
+    }
+
+    .form-control:focus, .form-select:focus {
+        border-color: var(--primary-red);
+        box-shadow: 0 0 0 3px rgba(220,38,38,0.1);
+        outline: none;
+    }
+
+    .btn-filter {
+        background-color: var(--primary-red);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 0.5rem 1rem;
+        font-weight: 500;
+        transition: background-color 0.2s ease;
+    }
+
+    .btn-filter:hover {
+        background-color: var(--primary-dark);
+    }
+
+    .logs-table {
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid #f0f0f0;
+    }
+
+    .logs-table thead th {
+        background-color: #f9fafb;
+        color: #374151;
+        font-weight: 600;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        border-bottom: 2px solid #e5e7eb;
+        padding: 1rem 0.75rem;
+    }
+
+    .logs-table tbody td {
+        padding: 1rem 0.75rem;
+        vertical-align: middle;
+        border-bottom: 1px solid #f0f0f0;
+        color: #1f2937;
+    }
+
+    .logs-table tbody tr:last-child td {
+        border-bottom: none;
+    }
+
+    .logs-table tbody tr:hover {
+        background-color: #fafafa;
+    }
+
+    .badge-action {
+        background-color: rgba(220,38,38,0.08);
+        color: var(--primary-dark);
+        font-weight: 500;
+        padding: 0.35rem 0.75rem;
+        border-radius: 30px;
+        font-size: 0.8rem;
+    }
+
+    .badge-role {
+        background-color: #f3f4f6;
+        color: #6b7280;
+        font-size: 0.7rem;
+        padding: 0.25rem 0.5rem;
+        border-radius: 30px;
+    }
+
+    .user-name {
+        font-weight: 600;
+        color: #111827;
+    }
+
+    .details-text {
+        color: #6b7280;
+        font-size: 0.9rem;
+        max-width: 300px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .date-col {
+        white-space: nowrap;
+        color: #6b7280;
+        font-size: 0.85rem;
+    }
+
+    .empty-state {
+        color: #9ca3af;
+        padding: 3rem 0;
+    }
+
+    .empty-state i {
+        color: #d1d5db;
+    }
+
+    /* Pagination Styling */
+    .simple-pagination .pagination {
+        gap: 0.25rem;
+        margin-bottom: 0;
+        flex-wrap: wrap;
+    }
+
+    .simple-pagination .page-item .page-link {
+        border: none;
+        background: transparent;
+        color: #6b7280;
+        padding: 0.3rem 0.6rem;
+        font-size: 0.9rem;
+    }
+
+    .simple-pagination .page-item.active .page-link {
+        background: transparent;
+        color: var(--primary-dark);
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    .simple-pagination .page-item:not(.active) .page-link:hover {
+        color: var(--primary-red);
+        background: transparent;
+    }
+
+    /* Hide ONLY prev/next safely */
+    .simple-pagination .page-link[rel="prev"],
+    .simple-pagination .page-link[rel="next"] {
+        display: none;
+    }
+
+    @media (max-width: 768px) {
+        .logs-table thead {
+            display: none;
+        }
+
+        .logs-table tbody tr {
+            display: block;
+            margin-bottom: 1rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 0.5rem;
+        }
+
+        .logs-table tbody td {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem;
+            border-bottom: 1px dashed #e5e7eb;
+        }
+
+        .logs-table tbody td:last-child {
+            border-bottom: none;
+        }
+
+        .logs-table tbody td::before {
+            content: attr(data-label);
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .details-text {
+            max-width: none;
+            white-space: normal;
+        }
+    }

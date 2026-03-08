@@ -1,0 +1,14 @@
+ :root {
+    --primary-red: #dc2626;
+    --primary-dark: #991b1b;
+    --primary-light: #fecaca;
+    --primary-bg: #fef2f2;
+
+    --dark: #1f2937;
+    --gray: #6b7280;
+
+    --border-radius: 12px;
+    --transition: all 0.3s ease;
+    --shadow: 0 4px 6px rgba(220, 38, 38, 0.1);
+    --shadow-lg: 0 10px 15px rgba(220, 38, 38, 0.15);
+}

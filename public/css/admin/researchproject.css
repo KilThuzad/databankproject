@@ -1,0 +1,128 @@
+:root {
+    --primary-red: #dc2626;
+    --primary-dark: #991b1b;
+    --primary-light: #fecaca;
+    --primary-bg: #fef2f2;
+    --dark: #1f2937;
+    --gray: #6b7280;
+    --border-radius: 12px;
+    --transition: all 0.3s ease;
+    --shadow: 0 4px 6px rgba(220, 38, 38, 0.1);
+    --shadow-lg: 0 10px 15px rgba(220, 38, 38, 0.15);
+}
+
+.page-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    color: var(--primary-dark);
+    padding-bottom: 5px;
+    border-bottom: 2px solid var(--primary-light);
+}
+
+.card {
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.card-header {
+    font-weight: 600;
+    font-size: 1.2rem;
+    border-bottom: 2px solid var(--primary-light);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.table th, .table td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.table tbody tr {
+    min-height: 50px;
+    height: 50px;
+}
+
+.table tbody tr:hover {
+    background-color: var(--primary-bg);
+}
+
+.badge {
+    padding: 0.35em 0.65em;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+.btn-danger {
+    background-color: var(--primary-red);
+    border-color: var(--primary-red);
+    transition: var(--transition);
+}
+.btn-danger:hover, .btn-danger:focus {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+.btn-outline-secondary {
+    color: var(--gray);
+    border-color: var(--gray);
+}
+.btn-outline-secondary:hover {
+    background-color: var(--primary-light);
+    color: var(--primary-dark);
+}
+
+.modal-header {
+    border-bottom: none;
+}
+
+@media (max-width: 768px) {
+    .table th, .table td {
+        font-size: 0.85rem;
+        padding: 0.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .table th, .table td {
+        font-size: 0.8rem;
+        padding: 0.4rem;
+    }
+}
+
+   .darkred-select {
+        color: var(--primary-dark);
+        border: 1px solid var(--primary-dark);
+        border-radius: 6px;
+        padding: 0.25rem 0.5rem;
+    }
+
+    .darkred-select option {
+        background-color: white;   
+        color: var(--dark);       
+    }
+
+    .darkred-select:focus {
+        border-color: var(--primary-dark);
+        outline: none;
+        box-shadow: 0 0 5px rgba(153, 27, 27, 0.5);
+    }
+
+    .sortable {
+        cursor: pointer;
+        user-select: none;
+    }
+
+    .sortable i {
+        font-size: 0.8rem;
+        margin-left: 4px;
+    }

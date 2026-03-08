@@ -1,0 +1,14 @@
+    .bg-darkred {
+        background-color: #8B1A1A !important; /* Darker red */
+        color: #fff !important;
+    }
+    .btn-darkred {
+        background-color: #8B1A1A;
+        border-color: #8B1A1A;
+        color: #fff;
+    }
+    .btn-darkred:hover {
+        background-color: #6F1515;
+        border-color: #6F1515;
+        color: #fff;
+    }

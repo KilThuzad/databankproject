@@ -1,0 +1,19 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build"
+    },
+    "devDependencies": {
+        "axios": "^1.1.2",
+        "browser-sync": "^3.0.4",
+        "browser-sync-webpack-plugin": "^2.4.0",
+        "laravel-vite-plugin": "^0.7.2",
+        "vite": "^4.0.0"
+    },
+    "dependencies": {
+        "@syncfusion/ej2-documenteditor": "^31.2.13",
+        "@syncfusion/ej2-pdfviewer": "^31.2.14",
+        "@syncfusion/ej2-spreadsheet": "^31.2.12"
+    }
+}

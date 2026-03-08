@@ -1,0 +1,56 @@
+.notification-header{
+    background: linear-gradient(135deg,#9b0000,#7a0000);
+    color:white;
+    border-radius:12px;
+}
+
+.notification-item{
+    padding:18px 20px;
+    border-bottom:1px solid #f0f0f0;
+    transition:all .15s ease;
+    background:white;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.notification-item:hover{
+    background:#fff5f5;
+}
+
+.notification-item.unread{
+    background:#fff8f8;
+    border-left:4px solid #9b0000;
+}
+
+.notification-item:focus-visible {
+    outline: 2px solid #9b0000;
+    outline-offset: -2px;
+}
+
+.notification-icon{
+    width:40px;
+    height:40px;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#fdeaea;
+    color:#9b0000;
+    font-size:16px;
+}
+
+.pagination .page-link{
+    color:#9b0000;
+}
+
+.pagination .page-item.active .page-link{
+    background:#9b0000;
+    border-color:#9b0000;
+}
+
+.btn-outline-light.active{
+    background:white;
+    color:#9b0000;
+    border-color:white;
+}

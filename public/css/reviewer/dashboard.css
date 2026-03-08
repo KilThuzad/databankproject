@@ -1,0 +1,83 @@
+:root{
+    --red-primary:#dc2626;
+    --red-dark:#991b1b;
+    --red-light:#fecaca;
+    --red-bg:#fef2f2;
+    --gray-text:#374151;
+}
+
+/* Page background */
+body{
+    background-color:#f9fafb;
+}
+
+/* Headings */
+h1, h6{
+    color:var(--red-dark) !important;
+}
+
+/* Cards */
+.card{
+    border-radius:14px;
+    border:0;
+}
+
+.card-header{
+    background:linear-gradient(135deg, var(--red-primary), var(--red-dark));
+    color:#fff;
+    border-radius:14px 14px 0 0;
+}
+
+.card-header h6{
+    color:#fff !important;
+}
+
+/* Statistic cards */
+.border-left-primary{ border-left:5px solid var(--red-primary)!important; }
+.border-left-success{ border-left:5px solid #16a34a!important; }
+.border-left-info{ border-left:5px solid #2563eb!important; }
+.border-left-warning{ border-left:5px solid #f59e0b!important; }
+
+/* Buttons */
+.btn-primary{
+    background:var(--red-primary);
+    border-color:var(--red-primary);
+}
+.btn-primary:hover{
+    background:var(--red-dark);
+    border-color:var(--red-dark);
+}
+.btn-danger{
+    background:var(--red-primary);
+    border-color:var(--red-primary);
+}
+.btn-danger:hover{
+    background:var(--red-dark);
+}
+
+/* Filters */
+.form-select{
+    border-radius:10px;
+}
+
+/* Badges */
+.badge{
+    padding:6px 10px;
+    font-size:0.75rem;
+}
+
+/* Table */
+.table th{
+    color:var(--red-dark);
+    text-transform:uppercase;
+    font-size:0.75rem;
+}
+.table tbody tr:hover{
+    background:var(--red-bg);
+    cursor:pointer;
+}
+
+/* Charts */
+canvas{
+    max-height:300px;
+}

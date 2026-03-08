@@ -1,0 +1,352 @@
+/* sidebar.css - Matching screenshot design */
+
+:root {
+    --sidebar-bg: #1a1e2e;
+    --sidebar-text: #ffffff;
+    --sidebar-active: #3a7bd5;
+    --sidebar-hover: #2d3448;
+    --topbar-bg: #ffffff;
+    --topbar-text: #333333;
+    --main-bg: #f8f9fa;
+    --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    --border-radius: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--main-bg);
+    color: var(--topbar-text);
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    width: 280px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar h4 {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 0;
+}
+
+.sidebar p {
+    font-size: 0.9rem;
+    color: #a0a4b8;
+    margin-bottom: 0;
+}
+
+.sidebar hr {
+    background-color: #2d3448;
+    height: 1px;
+    opacity: 1;
+    margin: 1rem 0;
+}
+
+.sidebar .nav-pills {
+    padding: 0 15px;
+    flex-grow: 1;
+}
+
+.sidebar .nav-link {
+    color: var(--sidebar-text);
+    border-radius: 8px;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s;
+    text-decoration: none;
+}
+
+.sidebar .nav-link:hover {
+    background-color: var(--sidebar-hover);
+    color: white;
+}
+
+.sidebar .nav-link.active {
+    background-color: var(--sidebar-active);
+    color: white;
+    position: relative;
+}
+
+.sidebar .nav-link.active::after {
+    content: '';
+    position: absolute;
+    right: 15px;
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.sidebar .nav-link ion-icon {
+    font-size: 1.2rem;
+}
+
+/* Sidebar Footer */
+.sidebar-footer {
+    padding: 20px;
+    text-align: center;
+    color: #a0a4b8;
+    font-size: 0.85rem;
+    border-top: 1px solid #2d3448;
+}
+
+.version-badge {
+    background-color: #2d3448;
+    color: #a0a4b8;
+    font-size: 0.75rem;
+    padding: 3px 10px;
+    border-radius: 12px;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+/* Main Content Styles */
+.main-content {
+    margin-left: 280px;
+    width: calc(100% - 280px);
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+.topbar {
+    background-color: var(--topbar-bg);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 10px 20px;
+    height: 70px;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.navbar-toggler {
+    border: none;
+    color: var(--topbar-text);
+    font-size: 1.5rem;
+    padding: 5px 10px;
+    display: none;
+}
+
+.search-box {
+    width: 300px;
+}
+
+.search-box input {
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+}
+
+.search-box button {
+    border-radius: 20px;
+    padding: 8px 20px;
+    border-color: var(--sidebar-active);
+    color: var(--sidebar-active);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-box button:hover {
+    background-color: var(--sidebar-active);
+    color: white;
+}
+
+.user-dropdown .dropdown-toggle {
+    color: var(--topbar-text);
+    text-decoration: none;
+}
+
+.user-dropdown .username {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.dropdown-menu {
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    border: none;
+    min-width: 250px;
+}
+
+.user-profile {
+    background-color: #f8f9fa;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.dropdown-item {
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s;
+}
+
+.dropdown-item:hover {
+    background-color: #f8f9fa;
+}
+
+.dropdown-item ion-icon {
+    margin-right: 10px;
+}
+
+/* Dashboard Content Styles */
+.container-fluid {
+    padding: 30px;
+}
+
+/* Card Styles */
+.card {
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s;
+    margin-bottom: 25px;
+    background-color: white;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-header {
+    background-color: white;
+    border-bottom: 1px solid #eee;
+    border-radius: var(--border-radius) var(--border-radius) 0 0 !important;
+    padding: 20px;
+    font-weight: 600;
+}
+
+.card-body {
+    padding: 25px;
+}
+
+/* Table Styles */
+.table {
+    color: var(--topbar-text);
+}
+
+.table th {
+    font-weight: 600;
+    border-top: none;
+    border-bottom: 2px solid #eee;
+}
+
+.table td {
+    vertical-align: middle;
+    border-color: #eee;
+}
+
+/* Badge Styles */
+.badge {
+    padding: 5px 10px;
+    font-weight: 500;
+    font-size: 0.75rem;
+}
+
+/* Progress Bar */
+.progress {
+    height: 6px;
+    border-radius: 3px;
+    background-color: #f0f0f0;
+}
+
+.progress-bar {
+    border-radius: 3px;
+}
+
+/* List Group */
+.list-group-item {
+    border: none;
+    padding: 15px 0;
+    background-color: transparent;
+}
+
+.list-group-item:first-child {
+    padding-top: 0;
+}
+
+.list-group-item:last-child {
+    padding-bottom: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .sidebar {
+        transform: translateX(-100%);
+        width: 280px;
+    }
+    
+    .sidebar.active {
+        transform: translateX(0);
+    }
+    
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    .navbar-toggler {
+        display: block;
+    }
+    
+    .search-box {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    
+    .topbar {
+        padding: 10px 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container-fluid {
+        padding: 20px 15px;
+    }
+    
+    .card-body {
+        padding: 20px;
+    }
+}
+
+/* Animation for sidebar toggle */
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
