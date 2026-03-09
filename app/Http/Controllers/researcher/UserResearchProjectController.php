@@ -38,7 +38,7 @@ class UserResearchProjectController extends Controller
     {
         $validated = $request->validate([
             'title'        => 'required|string|max:255|unique:research_projects,title',
-            'description'  => 'required|string',
+            'description'  => 'nullable|string',
             'category'     => 'required|string',
             'file_path'    => 'required|file|mimes:pdf,doc,docx|max:20240',
             'leader_id'    => 'nullable|exists:users,id',

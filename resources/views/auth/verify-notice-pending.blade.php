@@ -6,10 +6,10 @@
     <title>Verify Your Email</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-light">
 <div class="container mt-5">
-    <div class="card shadow-sm">
-        <div class="card-header bg-primary text-white">
+    <div class="card shadow-sm border-danger">
+        <div class="card-header bg-danger text-white">
             <h3 class="mb-0">Verify Your Email</h3>
         </div>
         <div class="card-body">
@@ -28,12 +28,12 @@
                 @csrf
                 <label for="email" class="form-label">Enter your email:</label>
                 <div class="input-group mb-3">
-                    <input type="email" name="email" id="email" class="form-control" placeholder="your@email.com" required>
-                    <button class="btn btn-primary" type="submit">Resend Verification</button>
+                    <input type="email" name="email" id="email" class="form-control border-danger" placeholder="your@email.com" required>
+                    <button class="btn btn-danger" type="submit">Resend Verification</button>
                 </div>
             </form>
 
-            <p class="mt-3"><a href="{{ route('register') }}">Go back to registration</a></p>
+            <p class="mt-3"><a href="{{ route('register') }}" class="text-danger">Go back to registration</a></p>
         </div>
     </div>
 </div>

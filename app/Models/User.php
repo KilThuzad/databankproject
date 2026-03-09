@@ -33,6 +33,31 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($user) {
+
+            ProjectTeam::where('user_id', $user->id)->delete();
+
+            $projects = ResearchProject::where('submitted_by', $user->id)->get();
+
+            foreach ($projects as $project) {
+
+                $newLeader = ProjectTeam::where('research_project_id', $project->id)
+                    ->first();
+
+                if ($newLeader) {
+                    $project->submitted_by = $newLeader->user_id;
+                    $project->save();
+                } else {
+                    $project->delete();
+                }
+            }
+        });
+    }
+
     /*
     |--------------------------------------------------------------------------
     | Accessors
@@ -93,4 +118,6 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(\App\Models\ReviewAssignment::class, 'reviewer_id');
     }
+
+ 
 }
