@@ -32,11 +32,6 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Run composer install
 RUN composer install --no-dev --optimize-autoloader
 
-# Cache Laravel config, routes, and views
-RUN php artisan config:cache
-RUN php artisan route:cache
-RUN php artisan view:cache
-
 # Build frontend assets (optional, only if using Vite/Laravel Mix)
 RUN npm install && npm run build
 
