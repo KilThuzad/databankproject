@@ -20,7 +20,7 @@ RUN apt-get update && apt-get install -y \
 # Enable Apache rewrite module
 RUN a2enmod rewrite
 
-# Allow .htaccess to work
+# Allow .htaccess overrides
 RUN sed -i '/<Directory \/var\/www\/>/,/<\/Directory>/ s/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf
 
 # Copy Laravel project
@@ -29,22 +29,25 @@ COPY . /var/www/html
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Run composer install
 RUN composer install --no-dev --optimize-autoloader
 
-# Build frontend assets (optional, only if using Vite/Laravel Mix)
+# Build frontend assets (Vite / Mix)
 RUN npm install && npm run build
 
-# Fix Apache DocumentRoot to Laravel public folder
+# Set Apache DocumentRoot to public
 RUN sed -i 's#/var/www/html#/var/www/html/public#g' /etc/apache2/sites-available/000-default.conf
 RUN sed -i 's#/var/www/html#/var/www/html/public#g' /etc/apache2/apache2.conf
 
-# Set permissions (storage, cache, public)
+# Fix permissions
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public
 RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public
+
+# Copy startup script
+COPY docker-entrypoint.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
 # Expose Apache port
 EXPOSE 80
 
-# Start Apache
-CMD ["apache2-foreground"]
+# Start container via custom entrypoint
+CMD ["docker-entrypoint.sh"]
