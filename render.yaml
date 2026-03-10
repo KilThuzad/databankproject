@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: laravel-app
+    runtime: docker
+    repo: https://github.com/KilThuzad/databankproject
+    branch: main
+    plan: free
