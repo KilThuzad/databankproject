@@ -1,53 +1,46 @@
-# Use official PHP image with Apache
-FROM php:8.2-apache
+# Dockerfile
+FROM php:8.2-fpm as build
 
-# Set working directory
-WORKDIR /var/www/html
-
-# Install PHP extensions and dependencies
+# Install system dependencies and PHP extensions
 RUN apt-get update && apt-get install -y \
+    git \
+    curl \
     libpng-dev \
     libonig-dev \
     libxml2-dev \
     zip \
     unzip \
-    git \
-    curl \
-    nodejs \
-    npm \
+    nginx \
     && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
-
-# Enable Apache rewrite module
-RUN a2enmod rewrite
-
-# Allow .htaccess overrides
-RUN sed -i '/<Directory \/var\/www\/>/,/<\/Directory>/ s/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf
-
-# Copy Laravel project
-COPY . /var/www/html
 
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-RUN composer install --no-dev --optimize-autoloader
+# Set working directory
+WORKDIR /var/www/html
 
-# Build frontend assets (Vite / Mix)
-RUN npm install && npm run build
+# Copy application files (this will be done by Git, but we copy everything from context)
+COPY . .
 
-# Set Apache DocumentRoot to public
-RUN sed -i 's#/var/www/html#/var/www/html/public#g' /etc/apache2/sites-available/000-default.conf
-RUN sed -i 's#/var/www/html#/var/www/html/public#g' /etc/apache2/apache2.conf
+# Install PHP dependencies (production only)
+RUN composer install --no-interaction --optimize-autoloader --no-dev
 
-# Fix permissions
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public
-RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public
+# Cache Laravel config and routes for better performance
+RUN php artisan config:cache && php artisan route:cache && php artisan view:cache
+
+# Set permissions for storage and bootstrap cache
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache \
+    && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+
+# Copy custom Nginx configuration (create this file next)
+COPY nginx.conf /etc/nginx/nginx.conf.template
 
 # Copy startup script
-COPY docker-entrypoint.sh /usr/local/bin/
-RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
 
-# Expose Apache port
-EXPOSE 80
+# Expose the dynamic port (Render will set $PORT)
+EXPOSE $PORT
 
-# Start container via custom entrypoint
-CMD ["docker-entrypoint.sh"]
+# Start services
+CMD ["/start.sh"]
