@@ -19,20 +19,28 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Set working directory
 WORKDIR /var/www/html
 
-# Copy application files (this will be done by Git, but we copy everything from context)
+# Copy application files (including .env.build – see note below)
 COPY . .
+
+# Rename the dummy environment file to .env for the build process
+# (Make sure you have created .env.build in your project root)
+COPY .env.build .env
 
 # Install PHP dependencies (production only)
 RUN composer install --no-interaction --optimize-autoloader --no-dev
 
-# Cache Laravel config and routes for better performance
+# Cache Laravel config, routes, and views
 RUN php artisan config:cache && php artisan route:cache && php artisan view:cache
 
-# Set permissions for storage and bootstrap cache
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache \
-    && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+# Remove the dummy .env for security (so it's not in the final image)
+RUN rm .env
 
-# Copy custom Nginx configuration (create this file next)
+# Set permissions for storage and bootstrap cache
+RUN mkdir -p storage bootstrap/cache \
+    && chown -R www-data:www-data storage bootstrap/cache \
+    && chmod -R 775 storage bootstrap/cache
+
+# Copy custom Nginx configuration
 COPY nginx.conf /etc/nginx/nginx.conf.template
 
 # Copy startup script
