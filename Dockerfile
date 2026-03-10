@@ -1,5 +1,4 @@
-# Dockerfile
-FROM php:8.2-fpm as build
+FROM php:8.2-fpm
 
 # Install system dependencies and PHP extensions
 RUN apt-get update && apt-get install -y \
@@ -19,23 +18,13 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Set working directory
 WORKDIR /var/www/html
 
-# Copy application files (including .env.build – see note below)
+# Copy application files (your code, but NOT .env – it's not needed)
 COPY . .
-
-# Rename the dummy environment file to .env for the build process
-# (Make sure you have created .env.build in your project root)
-COPY .env.build .env
 
 # Install PHP dependencies (production only)
 RUN composer install --no-interaction --optimize-autoloader --no-dev
 
-# Cache Laravel config, routes, and views
-RUN php artisan config:cache && php artisan route:cache && php artisan view:cache
-
-# Remove the dummy .env for security (so it's not in the final image)
-RUN rm .env
-
-# Set permissions for storage and bootstrap cache
+# Create necessary directories and set permissions
 RUN mkdir -p storage bootstrap/cache \
     && chown -R www-data:www-data storage bootstrap/cache \
     && chmod -R 775 storage bootstrap/cache
@@ -47,7 +36,7 @@ COPY nginx.conf /etc/nginx/nginx.conf.template
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
 
-# Expose the dynamic port (Render will set $PORT)
+# Expose the dynamic port
 EXPOSE $PORT
 
 # Start services
