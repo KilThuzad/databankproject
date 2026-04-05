@@ -2,19 +2,22 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EVCIEERD - Create Account</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>EVCIEERD · Create Account</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+{{-- custom css --}}
 <link rel="stylesheet" href="{{ asset('css/register.css') }}">
 </head>
 <body>
 <div class="container">
     <div class="register-container">
-        <div class="brand-bar">
-            <a href="{{ url('/') }}" class="brand-link">
-                <i class="fas fa-microscope"></i> EVCIEERD
+        <div class="brand-bar text-center">
+            <a href="{{ url('/') }}" class="brand-link d-inline-flex align-items-center justify-content-center gap-2">
+                <img src="{{ asset('images/EVSU.png') }}" alt="EVSU Logo" style="height:40px; width:auto;">
+                <span><strong>EVCIEERD</strong></span>
             </a>
             <p>Eastern Visayas Research Databank System</p>
         </div>
@@ -126,7 +129,7 @@
                     <!-- Step 2 -->
                     <div id="step2" style="display:none;">
                         <div class="profile-upload text-center">
-                            <img id="profilePreview" src="https://via.placeholder.com/200" class="profile-preview mb-3" alt="Profile Preview">
+                            <img id="profilePreview" src="https://ui-avatars.com/api/?background=C1121F&color=fff&bold=true&size=200&name=User" class="profile-preview mb-3" alt="Profile Preview">
                             <div class="upload-btn position-relative d-inline-block">
                                 <span class="btn btn-primary"><i class="bi bi-camera me-2"></i>Choose Profile Picture</span>
                                 <input type="file" name="profile_picture" id="profile_picture" accept="image/*">
@@ -162,18 +165,35 @@ nextBtn.addEventListener('click', () => {
     // Basic validation
     const requiredFields = step1.querySelectorAll('input, select');
     let valid = true;
-    requiredFields.forEach(field => { if(!field.checkValidity()) { field.reportValidity(); valid=false;} });
+    requiredFields.forEach(field => { 
+        if(!field.checkValidity()) { 
+            field.reportValidity(); 
+            valid=false;
+        } 
+    });
+    
+    // Additional password match validation
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('password_confirmation').value;
+    if(password !== confirmPassword) {
+        alert('Passwords do not match!');
+        valid = false;
+    }
+    
     if(!valid) return;
 
     step1.style.display='none';
     step2.style.display='block';
-    step1Indicator.classList.remove('active'); step1Indicator.classList.add('completed');
+    step1Indicator.classList.remove('active'); 
+    step1Indicator.classList.add('completed');
     step2Indicator.classList.add('active');
 });
+
 backBtn.addEventListener('click', () => {
     step2.style.display='none';
     step1.style.display='block';
-    step1Indicator.classList.add('active'); step1Indicator.classList.remove('completed');
+    step1Indicator.classList.add('active'); 
+    step1Indicator.classList.remove('completed');
     step2Indicator.classList.remove('active');
 });
 
@@ -182,8 +202,14 @@ document.querySelectorAll('.toggle-password').forEach(btn=>{
     btn.addEventListener('click', () => {
         const input = btn.parentElement.querySelector('input');
         const icon = btn.querySelector('i');
-        if(input.type==='password'){ input.type='text'; icon.classList.replace('bi-eye','bi-eye-slash'); }
-        else { input.type='password'; icon.classList.replace('bi-eye-slash','bi-eye'); }
+        if(input.type==='password'){ 
+            input.type='text'; 
+            icon.classList.replace('bi-eye','bi-eye-slash'); 
+        }
+        else { 
+            input.type='password'; 
+            icon.classList.replace('bi-eye-slash','bi-eye'); 
+        }
     });
 });
 
@@ -191,7 +217,9 @@ document.querySelectorAll('.toggle-password').forEach(btn=>{
 document.getElementById('profile_picture').addEventListener('change', function(e){
     if(this.files && this.files[0]){
         const reader = new FileReader();
-        reader.onload = function(e){ document.getElementById('profilePreview').src = e.target.result; };
+        reader.onload = function(e){ 
+            document.getElementById('profilePreview').src = e.target.result; 
+        };
         reader.readAsDataURL(this.files[0]);
     }
 });

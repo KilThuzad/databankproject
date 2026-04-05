@@ -21,7 +21,7 @@
 
         @foreach ($projects as $p)
         <div class="result-card">
-            <a href="{{ route('research_projects.show', $p->id) }}">
+            <a href="{{ route('userresearchproject.show', $p->id) }}">
                 {{ $p->title }}
             </a>
             <p>{{ Str::limit($p->description, 120) }}</p>

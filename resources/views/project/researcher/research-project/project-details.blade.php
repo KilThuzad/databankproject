@@ -49,7 +49,7 @@
         <div class="progress-tracking-card">
             <div class="tracking-header">
                 <h3 class="tracking-title">
-                    <i class="fas fa-truck-fast" style="color: var(--primary-red);"></i>
+                    <i class="fas fa-chart-line" style="color: var(--primary-red);"></i>
                     Project Approval Progress
                 </h3>
                 <span class="current-status-badge" style="background: 

@@ -155,7 +155,7 @@
         </div>
     </div>
 
-    <!-- Continue Review Modal (removed modal-dialog-centered) -->
+    <!-- Continue Review Modal -->
     <div class="modal fade" id="continueReviewModal" tabindex="-1" aria-labelledby="continueReviewModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -181,7 +181,7 @@
         </div>
     </div>
 
-    <!-- Submit Review Modal (removed modal-dialog-centered) -->
+    <!-- Submit Review Modal (Scrollable) -->
     <div class="modal fade" id="submitReviewModal" tabindex="-1" aria-labelledby="submitReviewModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-scrollable">
             <div class="modal-content">
@@ -194,40 +194,88 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <!-- Score Inputs -->
+                        <!-- Score Inputs with Dropdowns (Scrollable) -->
                         <div class="review-form-grid">
-                            <div>
+                            <div class="mb-3">
                                 <label for="score_originality" class="form-label">Originality (1-5)</label>
-                                <input type="number" name="score_originality" id="score_originality" 
-                                       class="form-control score-input" min="1" max="5" step="0.1" 
-                                       value="{{ old('score_originality', $review->score_originality ?? 3) }}" required>
+                                <select name="score_originality" id="score_originality" 
+                                        class="form-select score-select" required>
+                                    <option value="">Select score</option>
+                                    @for($i = 1; $i <= 5; $i += 0.5)
+                                        <option value="{{ $i }}" {{ old('score_originality', $review->score_originality ?? '') == $i ? 'selected' : '' }}>
+                                            {{ number_format($i, 1) }} - 
+                                            @if($i <= 1.5) Poor
+                                            @elseif($i <= 2.5) Fair
+                                            @elseif($i <= 3.5) Good
+                                            @elseif($i <= 4.5) Very Good
+                                            @else Excellent
+                                            @endif
+                                        </option>
+                                    @endfor
+                                </select>
                                 <small class="text-muted">Rate from 1 (Poor) to 5 (Excellent)</small>
                             </div>
-                            <div>
+                            <div class="mb-3">
                                 <label for="score_methodology" class="form-label">Methodology (1-5)</label>
-                                <input type="number" name="score_methodology" id="score_methodology" 
-                                       class="form-control score-input" min="1" max="5" step="0.1" 
-                                       value="{{ old('score_methodology', $review->score_methodology ?? 3) }}" required>
+                                <select name="score_methodology" id="score_methodology" 
+                                        class="form-select score-select" required>
+                                    <option value="">Select score</option>
+                                    @for($i = 1; $i <= 5; $i += 0.5)
+                                        <option value="{{ $i }}" {{ old('score_methodology', $review->score_methodology ?? '') == $i ? 'selected' : '' }}>
+                                            {{ number_format($i, 1) }} - 
+                                            @if($i <= 1.5) Poor
+                                            @elseif($i <= 2.5) Fair
+                                            @elseif($i <= 3.5) Good
+                                            @elseif($i <= 4.5) Very Good
+                                            @else Excellent
+                                            @endif
+                                        </option>
+                                    @endfor
+                                </select>
                                 <small class="text-muted">Rate from 1 (Poor) to 5 (Excellent)</small>
                             </div>
-                            <div>
+                            <div class="mb-3">
                                 <label for="score_contribution" class="form-label">Contribution (1-5)</label>
-                                <input type="number" name="score_contribution" id="score_contribution" 
-                                       class="form-control score-input" min="1" max="5" step="0.1" 
-                                       value="{{ old('score_contribution', $review->score_contribution ?? 3) }}" required>
+                                <select name="score_contribution" id="score_contribution" 
+                                        class="form-select score-select" required>
+                                    <option value="">Select score</option>
+                                    @for($i = 1; $i <= 5; $i += 0.5)
+                                        <option value="{{ $i }}" {{ old('score_contribution', $review->score_contribution ?? '') == $i ? 'selected' : '' }}>
+                                            {{ number_format($i, 1) }} - 
+                                            @if($i <= 1.5) Poor
+                                            @elseif($i <= 2.5) Fair
+                                            @elseif($i <= 3.5) Good
+                                            @elseif($i <= 4.5) Very Good
+                                            @else Excellent
+                                            @endif
+                                        </option>
+                                    @endfor
+                                </select>
                                 <small class="text-muted">Rate from 1 (Poor) to 5 (Excellent)</small>
                             </div>
-                            <div>
+                            <div class="mb-3">
                                 <label for="score_clarity" class="form-label">Clarity (1-5)</label>
-                                <input type="number" name="score_clarity" id="score_clarity" 
-                                       class="form-control score-input" min="1" max="5" step="0.1" 
-                                       value="{{ old('score_clarity', $review->score_clarity ?? 3) }}" required>
+                                <select name="score_clarity" id="score_clarity" 
+                                        class="form-select score-select" required>
+                                    <option value="">Select score</option>
+                                    @for($i = 1; $i <= 5; $i += 0.5)
+                                        <option value="{{ $i }}" {{ old('score_clarity', $review->score_clarity ?? '') == $i ? 'selected' : '' }}>
+                                            {{ number_format($i, 1) }} - 
+                                            @if($i <= 1.5) Poor
+                                            @elseif($i <= 2.5) Fair
+                                            @elseif($i <= 3.5) Good
+                                            @elseif($i <= 4.5) Very Good
+                                            @else Excellent
+                                            @endif
+                                        </option>
+                                    @endfor
+                                </select>
                                 <small class="text-muted">Rate from 1 (Poor) to 5 (Excellent)</small>
                             </div>
                         </div>
 
                         <!-- Overall Score Display -->
-                        <div class="overall-score-display">
+                        <div class="overall-score-display mt-3">
                             <div class="overall-score-label">Overall Score (Auto-calculated)</div>
                             <div class="overall-score-value" id="overallScoreDisplay">0.00</div>
                             <small class="text-muted">Average of all criteria scores</small>
@@ -235,12 +283,12 @@
                         <input type="hidden" name="overall_score" id="overall_score" value="0">
 
                         <!-- Auto Recommendation Section -->
-                        <div class="auto-recommendation-box" id="autoRecommendationBox">
+                        <div class="auto-recommendation-box mt-3" id="autoRecommendationBox">
                             <div class="auto-recommendation-header">
                                 <div>
                                     <strong><i class="fas fa-robot me-2"></i>Auto Recommendation</strong>
                                     <div id="autoRecommendationText" style="font-size: 0.9rem; color: #666;">
-                                        Enter scores to see recommendation
+                                        Select scores to see recommendation
                                     </div>
                                 </div>
                                 <div id="autoRecommendationBadge" class="recommendation-badge" style="display: none;"></div>
@@ -265,7 +313,7 @@
                         </div>
 
                         <!-- Comments (Optional) -->
-                        <div class="mb-4">
+                        <div class="mb-4 mt-3">
                             <label for="comments" class="form-label fw-bold">Review Comments</label>
                             <textarea name="comments" id="comments" class="form-control" rows="4" 
                                       placeholder="Provide detailed comments about your review, including strengths, weaknesses, and suggestions for improvement... (Optional)">{{ old('comments', $review->comments ?? '') }}</textarea>
@@ -285,7 +333,7 @@
         </div>
     </div>
 
-    <!-- Upload File Modal (removed modal-dialog-centered) -->
+    <!-- Upload File Modal -->
     @if($isReviewed)
     <div class="modal fade" id="uploadFileModal" tabindex="-1">
         <div class="modal-dialog">
@@ -324,7 +372,7 @@
     </div>
     @endif
 
-    <!-- Edit Comment Modal (removed modal-dialog-centered) -->
+    <!-- Edit Comment Modal -->
     <div class="modal fade" id="editCommentModal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -354,7 +402,7 @@
         </div>
     </div>
 
-    <!-- Reusable Confirmation Modal (removed modal-dialog-centered) -->
+    <!-- Reusable Confirmation Modal -->
     <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -494,7 +542,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    const scoreInputs = document.querySelectorAll('.score-input');
+    const scoreSelects = document.querySelectorAll('.score-select');
     const overallScoreDisplay = document.getElementById('overallScoreDisplay');
     const overallScoreHidden = document.getElementById('overall_score');
     const autoRecommendationBox = document.getElementById('autoRecommendationBox');
@@ -507,8 +555,8 @@ document.addEventListener('DOMContentLoaded', function() {
         let total = 0;
         let count = 0;
         
-        scoreInputs.forEach(input => {
-            const value = parseFloat(input.value);
+        scoreSelects.forEach(select => {
+            const value = parseFloat(select.value);
             if (!isNaN(value) && value >= 1 && value <= 5) {
                 total += value;
                 count++;
@@ -564,21 +612,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         recommendationInput.value = recommendation;
         
-        autoRecommendationBox.style.display = score > 0 ? 'block' : 'none';
+        autoRecommendationBox.style.display = 'block';
     }
     
-    scoreInputs.forEach(input => {
-        input.addEventListener('input', function() {
-            let value = parseFloat(this.value);
-            
-            if (value < 1) {
-                this.value = 1;
-            } else if (value > 5) {
-                this.value = 5;
-            } else if (isNaN(value)) {
-                this.value = 3;
-            }
-            
+    scoreSelects.forEach(select => {
+        select.addEventListener('change', function() {
             calculateOverallScore();
         });
     });
@@ -611,19 +649,19 @@ document.addEventListener('DOMContentLoaded', function() {
             let isValid = true;
             let firstInvalid = null;
             
-            scoreInputs.forEach(input => {
-                const value = parseFloat(input.value);
+            scoreSelects.forEach(select => {
+                const value = parseFloat(select.value);
                 if (isNaN(value) || value < 1 || value > 5) {
                     isValid = false;
-                    if (!firstInvalid) firstInvalid = input;
-                    input.classList.add('is-invalid');
+                    if (!firstInvalid) firstInvalid = select;
+                    select.classList.add('is-invalid');
                 } else {
-                    input.classList.remove('is-invalid');
+                    select.classList.remove('is-invalid');
                 }
             });
             
             if (!isValid) {
-                alert('All scores must be between 1 and 5');
+                alert('All scores must be selected between 1 and 5');
                 if (firstInvalid) firstInvalid.focus();
                 return;
             }
@@ -696,7 +734,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 'application/msword',
                 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
             ];
-            const maxSize = 10 * 1024 * 1024; // 10MB
+            const maxSize = 10 * 1024 * 1024; 
             
             if (!allowedTypes.includes(file.type)) {
                 alert('Please select a valid file type (PDF, DOC, DOCX).');
@@ -744,9 +782,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (submitReviewModal) {
         submitReviewModal.addEventListener('shown.bs.modal', function() {
             calculateOverallScore();
-            
-            const firstScore = scoreInputs[0];
-            if (firstScore) setTimeout(() => firstScore.focus(), 300);
         });
     }
     
